@@ -1,0 +1,5 @@
+#!/bin/bash
+
+chown -R worker:worker ./
+su worker -c "cd notebook && composer install && composer dump-autoload"
+mysql -h db -uroot -ptopsecret notebook < notebook.sql
